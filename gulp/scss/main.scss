@@ -1,0 +1,186 @@
+$white: #fff;
+$black: #000;
+$text-400: #424242;
+$text-100: #9e9e9e;
+$design: #ef5350;
+$frontend: #00bcd4;
+$backend: #4caf50;
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300&subset=latin,cyrillic);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', Arial, sans-serif;
+    font-weight: 400;
+    color: #424242;
+    background-color: #fff;
+}
+
+canvas {
+    display: block;
+}
+
+h1,
+h2,
+a,
+p,
+{
+    font-weight: 300;
+    line-height: 1;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+a {
+    text-decoration: none;
+    &:hover,
+    &:active {
+        text-decoration: underline;
+    }
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40rem;
+    height: 20rem;
+    margin-left: -19rem;
+    margin-top: -10rem;
+    perspective: 80rem;
+}
+
+.card {
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+}
+
+.card .front,
+.card .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    padding: 3rem;
+    background: #fff url(../images/bg.png) repeat;
+    box-shadow: 2px 1px 3px 0 rgba(0, 0, 0, .3), 0 0 32px 0 rgba(0, 0, 0, .1);
+    border-radius: 3px;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transform: rotateY(0);
+    transition: transform .6s ease;
+}
+
+.card .front {
+    z-index: 2;
+    transform: rotateY(0);
+}
+
+.card .back {
+    transform: rotateY(-180deg);
+}
+
+.card.flipped .front {
+    transform: rotateY(180deg);
+}
+
+.card.flipped .back {
+    transform: rotateY(0);
+}
+
+
+/*
+==============================================================================
+                                 content style 
+==============================================================================
+*/
+
+.title {
+    margin-bottom: .5rem;
+}
+
+.description {
+    font-size: 0.7rem;
+    font-weight: 300;
+    line-height: 1.2;
+    color: #9e9e9e;
+}
+
+.work {
+    position: absolute;
+    bottom: 3rem;
+    left: 3rem;
+    width: 12rem;
+    height: 8rem;
+    &__title {
+        margin-bottom: 0.5rem;
+    }
+    &__link {
+        position: relative;
+        display: block;
+        padding-top: 0.5rem;
+        padding-bottom: 0.2rem;
+        color: $black;
+    }
+}
+
+.contacts {
+    position: absolute;
+    bottom: 3rem;
+    right: 3rem;
+    width: 10rem;
+    height: 8rem;
+    &__title {
+        margin-bottom: 0.5rem;
+    }
+    &__link {
+        display: block;
+        padding-top: 0.5rem;
+        padding-bottom: 0.2rem;
+        color: $black;
+    }
+}
+
+// .label {
+//     display: inline-block;
+//     padding: 0 0.2rem 0.1rem 0.2rem;
+//     font-size: 0.8rem;
+//     color: $white;
+//     border-radius: 5px;
+//     &--design {
+//         background-color: $design;
+//     }
+//     &--frontend {
+//         background-color: $frontend;
+//     }
+//     &--backend {
+//         background-color: $backend;
+//     }
+// }
